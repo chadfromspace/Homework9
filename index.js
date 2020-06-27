@@ -29,7 +29,7 @@ const questions = [
     message: "What kind of license should your project have?",
     name: "license",
     choices: ["MIT","MPL","GPL","Apache","Boost"]
-    }
+    },
     {
     type: "input",
     message: "What command should be run to install dependencies?",
