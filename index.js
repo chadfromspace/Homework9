@@ -3,7 +3,7 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const md = require("./utils/generateMarkdown.js");
 //Creating an object containing the questions to use with Inquirer
-const questions = [    
+const questions = [
     {
     type: "input",
     message: "What is your GitHub username?",
@@ -25,10 +25,11 @@ const questions = [
     name: "description"
     },
     {
-    type: "input",
+    type: "list",
     message: "What kind of license should your project have?",
-    name: "license"
-    },
+    name: "license",
+    choices: ["MIT","MPL","GPL","Apache","Boost"]
+    }
     {
     type: "input",
     message: "What command should be run to install dependencies?",
@@ -53,6 +54,7 @@ const questions = [
 
 //Function to run in the initialization that accepts the file name and the response data as parameters.
 function writeToFile(fileName, data) {
+
     const inputData = md(data);
     fs.appendFile(fileName,inputData,(err)=>{if(err){console.log(err)}});
 }
